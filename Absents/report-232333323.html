@@ -1,25 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Attendance Report</title>
-</head>
-<body>
-   <button class="print" onclick={window.print()} role="button">Print</button>
-    <h2>Attendance Report</h2>
-    <p>Date: 12-02-2022</p>
-    <p>
-        Submitted on: 12/02/22 1:00 PM IST
-    </p>
-    <table class="attendance-tbl">
-
-            <!--<tr>
-                <td class="absent">1.John Doe</td>
-            </tr>-->
-    </table>
-</body>
 <style>
 table, th, td {
   border: 1px solid black;
@@ -36,7 +16,7 @@ th{
 }
 .present{
   background-color: #86fa72;
-    
+
 }
 table{
     width: 65%;
@@ -96,7 +76,26 @@ background: linear-gradient(to top, #48b1bf, #06beb6); /* W3C, IE 10+/ Edge, Fir
 }
 
 </style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Report</title>
+</head>
+<body>
+   <button class="print" onclick={window.print()} role="button">Print</button>
+    <h2>Attendance Report</h2>
+    <p>Date: 12-02-2022</p>
+    <p>
+        Submitted on: 12/02/22 1:00 PM IST
+    </p>
+    <table class="attendance-tbl">
 
-<tr><td class='absent'>1. Savio Baby
+            <!--<tr>
+                <td class="absent">1.John Doe</td>
+            </tr>-->
+<tr><td class='present'>1. Savio Baby
 </td></tr> 
-</html>
+<tr><td class='present'>2. Shalu Mathew
+</td></tr> 
+</table></body></html>

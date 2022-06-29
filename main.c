@@ -75,6 +75,7 @@ void take_attendance(){
 	strcat(file_name, date);
 	strcat(file_name, ".html");
 	abs_file = fopen(file_name, "w+");
+	int i=0;
     while (fgets(line, sizeof(line), roll)){
 	char *str = malloc(strlen(line)+1);
     strcpy(str, line);
@@ -86,13 +87,15 @@ void take_attendance(){
 		  c = fgetc(template);
 	}
 	// Copy absentees data to report
-    for(int i=0; i<sizeof(absentees); i++){
-        if(absentees[i]==*pch){
-			printf(str);
-		    fprintf(abs_file,"<tr><td class='absent'>%s</td></tr> \n", str);
-   		}
+     if(absentees[i]==*pch){
+  		 fprintf(abs_file,"<tr><td class='absent'>%s</td></tr> \n", str);
+		}else{
+	    fprintf(abs_file,"<tr><td class='present'>%s</td></tr> \n", str);
+
+		}
+	i++;
 	}
-	}
+	fprintf(abs_file, "</table></body></html>");
 	fclose(roll);
 	printf("Absentees Data Saved Succesfully");
 	fclose(abs_file);
