@@ -19,7 +19,7 @@ int main(){
 		case 2:
 			int n;
 			system("clear");
-			printf("1. Add Student\n2. Delete Student \n Enter your choice:");
+			printf("1. Add Student\n2. Delete Student \n3. Go Back \n Enter your choice:");
 			scanf("%d", &n);
 			switch(n){
 				case 1:
@@ -30,6 +30,9 @@ int main(){
 					delete_student();
 					goto welcome;
 				break;
+				case 3:
+					system("clear");
+					goto welcome;
 				default: printf("Invalid Input");
 			}
 		break;
@@ -83,9 +86,18 @@ void take_attendance(){
 	char c = fgetc(template);
 	// Copy template to report file
 	while (c != EOF){
+		  if(c=='^'){
+		  fprintf(abs_file, "%s", date);
+		  c = fgetc(template);
+		  }else{
 		  fputc(c, abs_file);
 		  c = fgetc(template);
-	}
+
+	}}
+	// Write date to html
+	// if(str=="DATE"){
+		// fprintf(abs_file, "%s", date);
+	// }
 	// Copy absentees data to report
      if(absentees[i]==*pch){
   		 fprintf(abs_file,"<tr><td class='absent'>%s</td></tr> \n", str);
