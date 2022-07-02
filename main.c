@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <malloc.h>
+#include <time.h>
 void take_attendance();
 void add_student();
 void delete_student();
@@ -58,12 +59,22 @@ void take_attendance()
 	rollList = fopen("roll-list", "r");
 	system("clear");
 	char temp, ch;
-	int absentees[50], num = 0;
+	int absentees[50], num = 0, n;
 	char date[20], file_name[30] = "Absents/report-";
 	FILE *abs_file;
 	system("clear");
+	printf(" 1. Take Attendance For Today\n 2. Enter Previous Attendance data");
+	printf("\nEnter your choice:");
+	scanf("%d", &n);
+	if(n==1){
+		time_t t = time(NULL);
+		struct tm tm = *localtime(&t);
+		sprintf(date, "%d-%02d-%02d",tm.tm_mday, tm.tm_mon + 1,tm.tm_year + 1900);
+	}else{
 	printf("Enter Date in dd-mm-yy format(Eg: 20-06-22)");
 	scanf("%s", date);
+	}
+	system("clear");
 	do
 	{
 		ch = fgetc(rollList);
