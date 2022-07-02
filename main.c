@@ -123,14 +123,14 @@ void take_attendance()
 		// }
 		for(int j=0; j<sizeof(absentees); j++){
 			if (absentees[j] == *pch){
-				fprintf(abs_file, "<tr><td class='absent'>%s</td></tr> \n", str);
+				fprintf(abs_file, "<tr><td class='absent'><span></span>%s<span>❌</span></td></tr> \n", str);
 				absent=1;
 				break;
 			}
 		}
 		if(absent==0)
 		{
-			fprintf(abs_file, "<tr><td class='present'>%s</td></tr> \n", str);
+			fprintf(abs_file, "<tr><td class='present'><span></span>%s<span>✔️</span></td></tr> \n", str);
 
 		}
 	}
@@ -138,6 +138,10 @@ void take_attendance()
 	fclose(roll);
 	printf("Absentees Data Saved Succesfully");
 	fclose(abs_file);
+	char command[25] = "firefox ";
+	strcat(command, file_name);
+	system(command);
+	system("clear");
 }
 void add_student()
 {
