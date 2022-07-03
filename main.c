@@ -64,7 +64,7 @@ void take_attendance()
 	system("clear");
 	char temp, ch;
 	int absentees[50], num = 0, n;
-	char date[20], file_name[30] = "Absents/report-";
+	char date[20], file_name[30] = "Reports/report-";
 	FILE *abs_file;
 	system("clear");
 	printf(" 1. Take Attendance For Today\n 2. Enter Previous Attendance data");
